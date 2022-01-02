@@ -38,6 +38,7 @@
 		418CB343275184BD00420D22 /* AllGroup+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418CB342275184BD00420D22 /* AllGroup+DataSource.swift */; };
 		418CB3452751882100420D22 /* FriendsListVC+FillSourceArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418CB3442751882100420D22 /* FriendsListVC+FillSourceArray.swift */; };
 		419740F32755726C003AA3AF /* FriendsListVC+SearchBarFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419740F22755726C003AA3AF /* FriendsListVC+SearchBarFunc.swift */; };
+		41B3F36A2781B93D004E8C6A /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B3F3692781B93D004E8C6A /* Session.swift */; };
 		41B762142751903D007911C8 /* MyGroupVC+fillGroupArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B762132751903D007911C8 /* MyGroupVC+fillGroupArray.swift */; };
 		41BE82C127660168001096D9 /* CustomMainSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BE82C027660168001096D9 /* CustomMainSegue.swift */; };
 		41BE82C327660A73001096D9 /* MyGroupVC+CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BE82C227660A72001096D9 /* MyGroupVC+CustomNavigationController.swift */; };
@@ -81,6 +82,7 @@
 		418CB342275184BD00420D22 /* AllGroup+DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AllGroup+DataSource.swift"; sourceTree = "<group>"; };
 		418CB3442751882100420D22 /* FriendsListVC+FillSourceArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FriendsListVC+FillSourceArray.swift"; sourceTree = "<group>"; };
 		419740F22755726C003AA3AF /* FriendsListVC+SearchBarFunc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FriendsListVC+SearchBarFunc.swift"; sourceTree = "<group>"; };
+		41B3F3692781B93D004E8C6A /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Session.swift; path = ../../../../../Session.swift; sourceTree = "<group>"; };
 		41B762132751903D007911C8 /* MyGroupVC+fillGroupArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MyGroupVC+fillGroupArray.swift"; sourceTree = "<group>"; };
 		41BE82C027660168001096D9 /* CustomMainSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMainSegue.swift; sourceTree = "<group>"; };
 		41BE82C227660A72001096D9 /* MyGroupVC+CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MyGroupVC+CustomNavigationController.swift"; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 			isa = PBXGroup;
 			children = (
 				415651732729A28700C3D193 /* AppDelegate.swift */,
+				41B3F3692781B93D004E8C6A /* Session.swift */,
 				415651752729A28700C3D193 /* SceneDelegate.swift */,
 				4185E12B2761477E00F0AE13 /* Controllers */,
 				418CB32C27517EFF00420D22 /* Model */,
@@ -325,6 +328,7 @@
 				415651742729A28700C3D193 /* AppDelegate.swift in Sources */,
 				418CB32E27517FE400420D22 /* FriendsList+Delegate.swift in Sources */,
 				418CB33F2751841D00420D22 /* AllGroupVC.swift in Sources */,
+				41B3F36A2781B93D004E8C6A /* Session.swift in Sources */,
 				418CB31F27517A6600420D22 /* FriendsListVC.swift in Sources */,
 				4149CFBC2762748400ECFD40 /* AllGroupVC+SearchBarFunc.swift in Sources */,
 				41BE82C327660A73001096D9 /* MyGroupVC+CustomNavigationController.swift in Sources */,
