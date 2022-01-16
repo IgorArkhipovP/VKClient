@@ -27,6 +27,7 @@ class FriendsListVC: UIViewController {
         tableViewFunc()
         fillOutFriendsArray()
         filteredFriendsArray = friendsArray
+        NetworkServices().loadListOfFriends()
     }
     
  

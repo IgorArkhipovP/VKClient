@@ -23,6 +23,7 @@ extension MyGroupVC: UISearchBarDelegate {
         for group in myGroupsArray{
             if group.name.lowercased().contains(searchText.lowercased()) {
                 filteredMyGroupsArray.append(group)
+                
             }
         }
         self.tableView.reloadData()

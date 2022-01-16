@@ -16,6 +16,7 @@ extension AllGroupVC: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
         filteredAllGroupsArray = []
+        NetworkServices().loadSearchRequest(request: searchText)
         
         if searchText.isEmpty{
             filteredAllGroupsArray = allGroupsArray
@@ -25,6 +26,7 @@ extension AllGroupVC: UISearchBarDelegate {
                 filteredAllGroupsArray.append(group)
             }
         }
+        
         self.tableView.reloadData()
     }
 }

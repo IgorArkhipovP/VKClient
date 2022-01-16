@@ -26,6 +26,7 @@ class MyGroupVC: UIViewController{
         searchMyGroupBar.delegate = self
         NotificationCenter.default.addObserver(self, selector: #selector(addGroup(_ :)), name: NSNotification.Name("allGroupSelectedNotificaion"), object: nil)
         filteredMyGroupsArray = myGroupsArray
+        NetworkServices().loadMyGroups()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
