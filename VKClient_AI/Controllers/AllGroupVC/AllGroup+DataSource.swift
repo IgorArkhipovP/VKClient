@@ -20,17 +20,18 @@ extension AllGroupVC: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return filteredAllGroupsArray.count
+        return searchGroup?.response.items.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: reUseIdentifier, for: indexPath) as? CustomTVCell else {return UITableViewCell()}
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: reUseIdentifier, for: indexPath) as? CustomTVCell,
+              let searchGroup = searchGroup?.response.items[indexPath.row] else {return UITableViewCell()}
         
         //A colour of a click is changed
         let backgroundView = UIView()
         backgroundView.backgroundColor = UIColor.systemGray5
         cell.selectedBackgroundView = backgroundView
-        cell.configure(group: allGroupsArray[indexPath.row])
+        cell.configure(group: searchGroup)
         
         //Different colour of cells
         if indexPath.row % 2 == 0 {

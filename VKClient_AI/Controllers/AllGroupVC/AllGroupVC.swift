@@ -18,6 +18,8 @@ class AllGroupVC: UIViewController {
     let reUseIdentifier = "reUseIdentifier"
     let heightTableViewCell: CGFloat = 80
     
+    var searchGroup: GroupOnlineModel?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         searchAllGroupsDelegate()

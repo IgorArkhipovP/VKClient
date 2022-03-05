@@ -14,6 +14,6 @@ extension AllGroupVC: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        NotificationCenter.default.post(name: NSNotification.Name("allGroupSelectedNotificaion"), object: allGroupsArray[indexPath.row])
+//        NotificationCenter.default.post(name: NSNotification.Name("allGroupSelectedNotificaion"), object: allGroupsArray[indexPath.row])
     }
 }

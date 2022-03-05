@@ -23,9 +23,9 @@ extension FriendsListVC: UITableViewDelegate {
     
     //MARK: Segue without animation
     
- func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-       if let friendsPhotoArray = friendsArray[indexPath.item].photoAray {
-            performSegue(withIdentifier: toGallerySegue, sender: friendsPhotoArray)
-       }
-    }
+// func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//       if let friendsPhotoArray = friendsArray[indexPath.item].photoAray {
+//            performSegue(withIdentifier: toGallerySegue, sender: friendsPhotoArray)
+//       }
+//    }
 }

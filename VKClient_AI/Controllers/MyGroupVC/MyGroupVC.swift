@@ -15,18 +15,24 @@ class MyGroupVC: UIViewController{
     var filteredMyGroupsArray = [Groups]()
     var myGroupsArray = [Groups]()
     
-    let reUseIdentifier = "reUseIdentifier"
+    let myGroupReUseIdentifier = "reUseIdentifier"
     let heightTableViewCell: CGFloat = 80
+    
+    var myGroups: GroupOnlineModel?
+    var myGroupFiltered: GroupOnlineModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.delegate = self
         tableViewFunc()
-        fillOutMyGroupsArray()
+        fillOutMyGroupsViaTheInternet()
         searchMyGroupBar.delegate = self
         NotificationCenter.default.addObserver(self, selector: #selector(addGroup(_ :)), name: NSNotification.Name("allGroupSelectedNotificaion"), object: nil)
+        
+        //MARK: It is made in order to create search
+        myGroupFiltered = myGroups
         filteredMyGroupsArray = myGroupsArray
-        NetworkServices().loadMyGroups()
+        //  NetworkServices().loadMyGroups()
     }
     
     override func viewWillDisappear(_ animated: Bool) {

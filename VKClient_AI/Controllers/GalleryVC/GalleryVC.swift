@@ -20,7 +20,7 @@ class GalleryVC: UIViewController{
         collectionGalleryView.dataSource = self
         collectionGalleryView.delegate = self
         collectionGalleryView.register(UINib(nibName: "GalleryCell", bundle: nil), forCellWithReuseIdentifier: reUseIdentifier)
-        NetworkServices().loadPhotosOfUser()
+        //NetworkServices().loadPhotosOfUser()
     }
     
 }

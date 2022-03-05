@@ -6,11 +6,12 @@
 //
 
 import UIKit
+import Kingfisher
 
 class CustomTVCell: UITableViewCell {
     
     @IBOutlet var avatarImageView: UIImageView!
-    @IBOutlet var friendLabel: UILabel!
+    @IBOutlet var nameLabel: UILabel!
     @IBOutlet var ageLabel: UILabel!
     @IBOutlet var containerView: UIView!
     
@@ -19,7 +20,7 @@ class CustomTVCell: UITableViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         avatarImageView.image = nil
-        friendLabel.text = nil
+        nameLabel.text = nil
     }
     
     override func awakeFromNib() {
@@ -28,44 +29,57 @@ class CustomTVCell: UITableViewCell {
     
     func configure(image: UIImage?, text: String?){
         avatarImageView.image = image
-        friendLabel.text = text
+        nameLabel.text = text
     }
     
-    func configure(friend: Friends, closure: @escaping (() -> Void)) {
-        if let imageName = friend.avatar {
-            avatarImageView.image = UIImage(named: imageName)
-            avatarImageView.layer.cornerRadius = 28
-            avatarImageView.layer.borderWidth = 3
-            avatarImageView.layer.borderColor = UIColor.systemRed.cgColor
-            containerView.clipsToBounds = false
-            containerView.layer.shadowColor = UIColor.black.cgColor
-            containerView.layer.shadowOpacity = 0.5
-            containerView.layer.shadowOffset = .zero
-            containerView.layer.shadowRadius = 10
-            containerView.layer.shadowPath = UIBezierPath(rect: containerView.bounds).cgPath
-            avatarImageView.clipsToBounds = true
-        }
-        friendLabel.text = friend.name
+    func configure(friend: FriendItem) {
+        avatarImageView.kf.setImage(with: URL(string: friend.photo100))
+        avatarImageView.layer.cornerRadius = 28
+        avatarImageView.layer.borderWidth = 3
+        avatarImageView.layer.borderColor = UIColor.systemRed.cgColor
+        containerView.clipsToBounds = false
+        containerView.layer.shadowColor = UIColor.black.cgColor
+        containerView.layer.shadowOpacity = 0.5
+        containerView.layer.shadowOffset = .zero
+        containerView.layer.shadowRadius = 10
+        containerView.layer.shadowPath = UIBezierPath(rect: containerView.bounds).cgPath
+        avatarImageView.clipsToBounds = true
+        nameLabel.text = friend.firstName + " " + friend.lastName
         //Added Age Label
-        ageLabel.text = friend.age
-        self.closure = closure
+        ageLabel.text = nil
     }
     
-    func configure(group: Groups) {
-        if let imageName = group.avatar {
-            avatarImageView.image = UIImage(named: imageName)
-            avatarImageView.layer.cornerRadius = 28
-            avatarImageView.layer.borderWidth = 3
-            avatarImageView.layer.borderColor = UIColor.systemRed.cgColor
-            containerView.clipsToBounds = false
-            containerView.layer.shadowColor = UIColor.black.cgColor
-            containerView.layer.shadowOpacity = 0.5
-            containerView.layer.shadowOffset = .zero
-            containerView.layer.shadowRadius = 10
-            containerView.layer.shadowPath = UIBezierPath(rect: containerView.bounds).cgPath
-            avatarImageView.clipsToBounds = true
-        }
-        friendLabel.text = group.name
+    func configure(group: GroupItem) {
+
+        
+        nameLabel.text = group.name
+        
+        avatarImageView.kf.setImage(with: URL(string: group.photo100))
+        avatarImageView.layer.cornerRadius = 28
+        avatarImageView.layer.borderWidth = 3
+        avatarImageView.layer.borderColor = UIColor.systemRed.cgColor
+        containerView.clipsToBounds = false
+        containerView.layer.shadowColor = UIColor.black.cgColor
+        containerView.layer.shadowOpacity = 0.5
+        containerView.layer.shadowOffset = .zero
+        containerView.layer.shadowRadius = 10
+        containerView.layer.shadowPath = UIBezierPath(rect: containerView.bounds).cgPath
+        avatarImageView.clipsToBounds = true
+        
+        //if let imageName = group.avatar {
+//            avatarImageView.image = UIImage(named: imageName)
+//            avatarImageView.layer.cornerRadius = 28
+//            avatarImageView.layer.borderWidth = 3
+//            avatarImageView.layer.borderColor = UIColor.systemRed.cgColor
+//            containerView.clipsToBounds = false
+//            containerView.layer.shadowColor = UIColor.black.cgColor
+//            containerView.layer.shadowOpacity = 0.5
+//            containerView.layer.shadowOffset = .zero
+//            containerView.layer.shadowRadius = 10
+//            containerView.layer.shadowPath = UIBezierPath(rect: containerView.bounds).cgPath
+//            avatarImageView.clipsToBounds = true
+//        }
+//        nameLabel.text = group.name
         ageLabel.text = nil
     }
     

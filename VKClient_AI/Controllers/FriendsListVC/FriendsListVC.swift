@@ -12,8 +12,8 @@ class FriendsListVC: UIViewController {
     @IBOutlet var tableView: UITableView!
     @IBOutlet var searchFriendBar: UISearchBar!
     
-    var friendsArray = [Friends]()
-    var filteredFriendsArray = [Friends]()
+    var friendsArray: FriendOnlineModel?
+    var filteredFriendsArray: FriendOnlineModel?
     let reUseIdentifier = "reUseIdentifier"
     let heightTableViewCell: CGFloat = 80
     let yearsOld = "years old"
@@ -25,9 +25,9 @@ class FriendsListVC: UIViewController {
         super.viewDidLoad()
         searchMyFriendsDelegate()
         tableViewFunc()
-        fillOutFriendsArray()
+        fillOutFriendArrayViaTheFriends()
         filteredFriendsArray = friendsArray
-        NetworkServices().loadListOfFriends()
+        // NetworkServices().loadListOfFriends()
     }
     
  
