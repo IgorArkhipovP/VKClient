@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import RealmSwift
 
 // MARK: - FriendOnlineModel
 struct FriendOnlineModel: Codable {
@@ -19,15 +20,16 @@ struct FriendResponse: Codable {
 }
 
 // MARK: - Item
-struct FriendItem: Codable {
-    let id: Int
-    let firstName, lastName: String
+class FriendItem: Object, Codable {
+    @Persisted var id: Int
+    @Persisted var firstName: String
+    @Persisted var lastName: String
     let canAccessClosed, isClosed: Bool?
     let city: City?
     let trackCode: String
     let deactivated: String?
     let lists: [Int]?
-    let photo100: String
+    @Persisted var photo100: String
 
     enum CodingKeys: String, CodingKey {
         case id

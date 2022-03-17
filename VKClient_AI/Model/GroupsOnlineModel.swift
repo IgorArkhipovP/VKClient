@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import RealmSwift
 
 // MARK: - GroupOnlineModel
 struct GroupOnlineModel: Codable {
@@ -19,13 +20,15 @@ struct GroupResponse: Codable {
 }
 
 // MARK: - Item
-struct GroupItem: Codable {
-    let id: Int
-    let name, screenName: String
+class GroupItem: Object, Codable {
+    @Persisted var id: Int
+    @Persisted var name: String
+    let screenName: String
     let isClosed: Int
     let type: String
     let isAdmin, isMember, isAdvertiser: Int
-    let photo50, photo100, photo200: String
+    let photo50, photo200: String
+    @Persisted var photo100: String
 
     enum CodingKeys: String, CodingKey {
         case id, name

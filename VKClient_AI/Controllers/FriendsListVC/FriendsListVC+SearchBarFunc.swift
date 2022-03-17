@@ -17,7 +17,6 @@ extension FriendsListVC: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
-        
         var tempData: FriendOnlineModel = self.friendsArray!
         tempData.response.items = []
         
@@ -28,20 +27,19 @@ extension FriendsListVC: UISearchBarDelegate {
                 "\($0.firstName) \($0.lastName)".localizedCaseInsensitiveContains(searchText) } ?? []
             self.filteredFriendsArray = tempData
             self.tableView.reloadData()
-                
-            }
-            
-//        filteredFriendsArray = []
-//
-//        if searchText.isEmpty {
-//            filteredFriendsArray = friendsArray
-//        }
-//        for friend in friendsArray {
-//            if friend.name.lowercased().contains(searchText.lowercased()) {
-//                filteredFriendsArray.append(friend)
-//            }
-//        }
-//        self.tableView.reloadData()
-//    }
-}
+        }
+        
+        //        filteredFriendsArray = []
+        //
+        //        if searchText.isEmpty {
+        //            filteredFriendsArray = friendsArray
+        //        }
+        //        for friend in friendsArray {
+        //            if friend.name.lowercased().contains(searchText.lowercased()) {
+        //                filteredFriendsArray.append(friend)
+        //            }
+        //        }
+        //        self.tableView.reloadData()
+        //    }
+    }
 }

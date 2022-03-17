@@ -21,6 +21,8 @@ class MyGroupVC: UIViewController{
     var myGroups: GroupOnlineModel?
     var myGroupFiltered: GroupOnlineModel?
     
+    var timer = Timer()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.delegate = self

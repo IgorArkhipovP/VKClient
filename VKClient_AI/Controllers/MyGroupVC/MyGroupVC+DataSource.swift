@@ -20,7 +20,8 @@ extension MyGroupVC: UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.myGroupFiltered?.response.count ?? 0
+        return self.myGroupFiltered?.response.items.count ?? 0
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

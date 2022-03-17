@@ -8,7 +8,7 @@
 import UIKit
 import Alamofire
 
-class NetworkServices{
+final class NetworkServices{
     
     let versionOfAPI = "5.131"
     let token = Session.sessionInstance.token
