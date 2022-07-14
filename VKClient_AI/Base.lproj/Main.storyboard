@@ -240,6 +240,7 @@
                     <connections>
                         <segue destination="rMf-PL-vYy" kind="relationship" relationship="viewControllers" id="48t-7i-ZOF"/>
                         <segue destination="fcm-62-HrW" kind="relationship" relationship="viewControllers" id="gqh-83-lva"/>
+                        <segue destination="STR-H1-BrG" kind="relationship" relationship="viewControllers" id="NbQ-bw-9kg"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CZc-bs-Y6t" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -263,7 +264,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DgP-hn-Gpm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2637.68115942029" y="-217.63392857142856"/>
+            <point key="canvasLocation" x="2638" y="-592"/>
         </scene>
         <!--Friends-->
         <scene sceneID="H1N-Vh-84R">
@@ -307,7 +308,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sze-nZ-kHq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3526.0869565217395" y="-218.30357142857142"/>
+            <point key="canvasLocation" x="3497" y="-593"/>
         </scene>
         <!--GalleryVC-->
         <scene sceneID="xec-9p-w5A">
@@ -355,7 +356,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="51L-Jm-OTX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4484.057971014493" y="-218.30357142857142"/>
+            <point key="canvasLocation" x="4487" y="-593"/>
         </scene>
         <!--Friend PhotoVC-->
         <scene sceneID="h2C-uF-37d">
@@ -385,7 +386,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HC4-7g-wsp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5379.7101449275369" y="-218.30357142857142"/>
+            <point key="canvasLocation" x="5407" y="-593"/>
         </scene>
         <!--Group List-->
         <scene sceneID="uG5-ii-h5J">
@@ -404,7 +405,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TbJ-gC-Wzx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2637.68115942029" y="464.73214285714283"/>
+            <point key="canvasLocation" x="2638" y="76"/>
         </scene>
         <!--My Groups-->
         <scene sceneID="xb2-hN-6P6">
@@ -453,7 +454,38 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jeT-n5-BxZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3497.1014492753625" y="464.73214285714283"/>
+            <point key="canvasLocation" x="3496" y="76"/>
+        </scene>
+        <!--NewsFeed-->
+        <scene sceneID="Nad-dI-7qj">
+            <objects>
+                <viewController id="kST-yz-qo2" customClass="NewsFeedVC" customModule="VKClient_AI" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="CPn-JH-ixw">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="tu7-wu-8wp">
+                                <rect key="frame" x="0.0" y="140" width="414" height="673"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="1iZ-ZZ-lZb"/>
+                        <color key="backgroundColor" systemColor="systemTealColor"/>
+                        <constraints>
+                            <constraint firstItem="tu7-wu-8wp" firstAttribute="top" secondItem="1iZ-ZZ-lZb" secondAttribute="top" id="0lc-zs-g5X"/>
+                            <constraint firstItem="1iZ-ZZ-lZb" firstAttribute="trailing" secondItem="tu7-wu-8wp" secondAttribute="trailing" id="Ig8-22-lhc"/>
+                            <constraint firstItem="1iZ-ZZ-lZb" firstAttribute="bottom" secondItem="tu7-wu-8wp" secondAttribute="bottom" id="cuv-rW-tHt"/>
+                            <constraint firstItem="tu7-wu-8wp" firstAttribute="leading" secondItem="1iZ-ZZ-lZb" secondAttribute="leading" id="i5o-BL-gog"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="NewsFeed" id="8F2-1X-wCv"/>
+                    <connections>
+                        <outlet property="newsfeedTableView" destination="tu7-wu-8wp" id="qsd-m4-2mQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Dza-O6-Scg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3496" y="819"/>
         </scene>
         <!--All Groups-->
         <scene sceneID="Q8V-2K-P7x">
@@ -495,10 +527,30 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Oy-8n-BCO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4434.7826086956529" y="464.73214285714283"/>
+            <point key="canvasLocation" x="4590" y="76"/>
+        </scene>
+        <!--NewsFeed-->
+        <scene sceneID="0RL-wb-af6">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="STR-H1-BrG" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="NewsFeed" image="newspaper.fill" catalog="system" id="T75-Bc-UtY"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="u0b-NN-J89">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="kST-yz-qo2" kind="relationship" relationship="rootViewController" id="mOb-wQ-7Cs"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1P5-Xj-Kab" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2638" y="819"/>
         </scene>
     </scenes>
     <resources>
+        <image name="newspaper.fill" catalog="system" width="128" height="111"/>
         <image name="person.3.sequence" catalog="system" width="128" height="59"/>
         <image name="person.circle" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">

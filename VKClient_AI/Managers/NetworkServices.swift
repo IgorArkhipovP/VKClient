@@ -25,7 +25,7 @@ final class NetworkServices{
             URLQueryItem(name: "client_id", value: "8081179"),
             URLQueryItem(name: "display", value: "mobile"),
             URLQueryItem(name: "redirect_uri", value: "https://oauth.vk.com/blank.html"),
-            URLQueryItem(name: "scope", value: "262150"),
+            URLQueryItem(name: "scope", value: "270342"),
             URLQueryItem(name: "response_type", value: "token"),
             URLQueryItem(name: "v", value: versionOfAPI)
         ]
@@ -62,8 +62,8 @@ final class NetworkServices{
                 }
             }
             
-        //AF.request(baseURL + path, method: .get, parameters: params).responseJSON { (response) in
-          //  guard let json = response.value else {
+            //AF.request(baseURL + path, method: .get, parameters: params).responseJSON { (response) in
+            //  guard let json = response.value else {
             //    return
             // }
             //print(response.request)
@@ -99,31 +99,31 @@ final class NetworkServices{
             }
         }
     }
-//        var urlComponentsOfFriendsList = URLComponents()
-//
-//        urlComponentsOfFriendsList.scheme = "https"
-//        urlComponentsOfFriendsList.host = "api.vk.com"
-//        urlComponentsOfFriendsList.path = "/method/friends.get"
-//        urlComponentsOfFriendsList.queryItems = [
-//            URLQueryItem(name: "access_token", value: token),
-//            URLQueryItem(name: "v", value: versionOfAPI),
-//            URLQueryItem(name: "fields", value: "city")
-//        ]
-//
-//        guard let url = urlComponentsOfFriendsList.url else { return }
-//
-//        print(url)
-//
-//        let session = URLSession.shared
-//
-//        let request = URLRequest(url: url)
-//        let dataTask = session.dataTask(with: request) { data, response, error in
-//            let json = try? JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.allowFragments)
-//          //  print("Friend list: \(json)")
-//        }
-//        dataTask.resume()
-//    }
-//
+    //        var urlComponentsOfFriendsList = URLComponents()
+    //
+    //        urlComponentsOfFriendsList.scheme = "https"
+    //        urlComponentsOfFriendsList.host = "api.vk.com"
+    //        urlComponentsOfFriendsList.path = "/method/friends.get"
+    //        urlComponentsOfFriendsList.queryItems = [
+    //            URLQueryItem(name: "access_token", value: token),
+    //            URLQueryItem(name: "v", value: versionOfAPI),
+    //            URLQueryItem(name: "fields", value: "city")
+    //        ]
+    //
+    //        guard let url = urlComponentsOfFriendsList.url else { return }
+    //
+    //        print(url)
+    //
+    //        let session = URLSession.shared
+    //
+    //        let request = URLRequest(url: url)
+    //        let dataTask = session.dataTask(with: request) { data, response, error in
+    //            let json = try? JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.allowFragments)
+    //          //  print("Friend list: \(json)")
+    //        }
+    //        dataTask.resume()
+    //    }
+    //
     //MARK: request of user
     func loadPhotosOfUser(completion: @escaping ((Result<PhotoOnlineModel, Error>) -> Void)) {
         let baseURL = "https://api.vk.com"
@@ -151,15 +151,15 @@ final class NetworkServices{
             }
         }
     }
-        
-//        AF.request(baseURL + path, method: .get, parameters: params).responseJSON { (response) in
-//            guard let json = response.value else {
-//                return
-//            }
-//            print(response.request)
-//           // print(json)
-//        }
-//    }
+    
+    //        AF.request(baseURL + path, method: .get, parameters: params).responseJSON { (response) in
+    //            guard let json = response.value else {
+    //                return
+    //            }
+    //            print(response.request)
+    //           // print(json)
+    //        }
+    //    }
     
     func loadSearchRequest(request: String, completion: @escaping ((Result<GroupOnlineModel, Error>) -> Void)) {
         let baseURL = "https://api.vk.com"
@@ -173,27 +173,56 @@ final class NetworkServices{
         
         
         AF.request(baseURL + path, method: .get, parameters: params).responseJSON { (response) in
-                switch response.result {
-                case .failure(let error):
-                    completion(.failure(error))
-                case .success( _):
-                    if let data = response.data {
-                        do {
-                            let groups = try JSONDecoder().decode(GroupOnlineModel.self, from: data)
-                            completion(.success(groups))
-                        } catch {
-                            completion(.failure(error))
-                        }
+            switch response.result {
+            case .failure(let error):
+                completion(.failure(error))
+            case .success( _):
+                if let data = response.data {
+                    do {
+                        let groups = try JSONDecoder().decode(GroupOnlineModel.self, from: data)
+                        completion(.success(groups))
+                    } catch {
+                        completion(.failure(error))
                     }
                 }
             }
+        }
     }
-//        AF.request(baseURL + path, method: .get, parameters: params).responseJSON { (response) in
-//            guard let json = response.value else {
-//                return
-//            }
-//            print(response.request)
-//            //print(json)
-//        }
-//    }
+    //        AF.request(baseURL + path, method: .get, parameters: params).responseJSON { (response) in
+    //            guard let json = response.value else {
+    //                return
+    //            }
+    //            print(response.request)
+    //            //print(json)
+    //        }
+    //    }
+    
+    func getNewsFeed(completion: @escaping ((Result<FeedResponseOnlineModel, Error>) -> Void))
+    {
+        let baseURL = "https://api.vk.com"
+        let path = "/method/newsfeed.get"
+        
+        let params: Parameters = [
+            "access_token": token,
+            "filters": "post,photo",
+            "v": versionOfAPI
+        ]
+        
+        AF.request(baseURL + path, method: .get, parameters: params).responseJSON { (response) in
+            switch response.result {
+            case .failure(let error):
+                completion(.failure(error))
+            case .success( _):
+                if let data = response.data {
+                    do {
+                        let feeds = try JSONDecoder().decode(FeedResponseOnlineModel.self, from: data)
+                        completion(.success(feeds))
+                        print(feeds)
+                    } catch {
+                        completion(.failure(error))
+                    }
+                }
+            }
+        }
+    }
 }
