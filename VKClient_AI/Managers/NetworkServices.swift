@@ -197,32 +197,34 @@ final class NetworkServices{
     //        }
     //    }
     
-    func getNewsFeed(completion: @escaping ((Result<FeedResponseOnlineModel, Error>) -> Void))
-    {
-        let baseURL = "https://api.vk.com"
-        let path = "/method/newsfeed.get"
-        
-        let params: Parameters = [
-            "access_token": token,
-            "filters": "post,photo",
-            "v": versionOfAPI
-        ]
-        
-        AF.request(baseURL + path, method: .get, parameters: params).responseJSON { (response) in
-            switch response.result {
-            case .failure(let error):
-                completion(.failure(error))
-            case .success( _):
-                if let data = response.data {
-                    do {
-                        let feeds = try JSONDecoder().decode(FeedResponseOnlineModel.self, from: data)
-                        completion(.success(feeds))
-                        print(feeds)
-                    } catch {
-                        completion(.failure(error))
-                    }
-                }
-            }
-        }
-    }
+    
+    //MARK: ONLINE REQUEST
+   func getNewsFeed(completion: @escaping ((Result<FeedResponseOnlineModel, Error>) -> Void))
+   {
+       let baseURL = "https://api.vk.com"
+       let path = "/method/newsfeed.get"
+
+       let params: Parameters = [
+           "access_token": token,
+           "filters": "post,photo",
+           "v": versionOfAPI
+       ]
+
+       AF.request(baseURL + path, method: .get, parameters: params).responseJSON { (response) in
+           switch response.result {
+           case .failure(let error):
+               completion(.failure(error))
+           case .success( _):
+               if let data = response.data {
+                   do {
+                       let feeds = try JSONDecoder().decode(FeedResponseOnlineModel.self, from: data)
+                       completion(.success(feeds))
+                       print(feeds)
+                   } catch {
+                       completion(.failure(error))
+                   }
+               }
+           }
+       }
+   }
 }

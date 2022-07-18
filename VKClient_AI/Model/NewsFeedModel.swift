@@ -5,8 +5,19 @@
 //  Created by Игорь  Архипов on 27.06.2022.
 //
 
-import Foundation
+import UIKit
 
+struct NewsFeedModel{
+    var headOfNews: String
+    var textOfNews: String?
+    var imageOfNews: UIImage?
+    var likeCount: Int
+    var shareCount: Int
+    var commentsCount: Int
+}
+
+
+    //MARK: OnlineModel
 struct FeedResponseOnlineModel: Decodable {
     let response: FeedResponse
 }
