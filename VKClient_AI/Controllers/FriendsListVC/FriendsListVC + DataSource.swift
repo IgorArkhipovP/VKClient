@@ -34,6 +34,13 @@ extension FriendsListVC: UITableViewDataSource {
         
         
         cell.configure(friend: friend)
+        
+        if indexPath.row % 2 == 0 {
+            cell.backgroundColor = .clear
+        } else {
+            cell.backgroundColor = UIColor.oddBackgroudColor
+        }
+        
 //        cell.configure(friend: filteredFriendsArray[indexPath.row], closure: { [weak self] in
 //            if let self = self,
 //               let friendsPhotoArray = self.friendsArray[indexPath.item].photoAray {

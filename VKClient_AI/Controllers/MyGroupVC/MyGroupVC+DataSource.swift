@@ -38,7 +38,7 @@ extension MyGroupVC: UITableViewDataSource{
         if indexPath.row % 2 == 0 {
             cell.backgroundColor = .clear
         } else {
-            cell.backgroundColor = UIColor(red: 120/255.0, green: 150/255.0, blue: 200/255.0, alpha: 0.3)
+            cell.backgroundColor = UIColor.oddBackgroudColor
         }
         return cell
     }

@@ -19,13 +19,30 @@ class NewsFeedVC: UIViewController {
         NewsFeedModel(headOfNews: "Panda was born in a zoo", textOfNews: "Panda was born in Berlin Zoo. He was name Carl the Great.", imageOfNews: UIImage(named: "pass")!, likeCount: 343, shareCount: 346, commentsCount: 545),
     ]
     
+    // var newsFeedOnlineArray: NewsFeedOnline?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         newsfeedTableView.dataSource = self
         newsfeedTableView.delegate = self
         cellsRegister()
-       
+        // fillOutNewsFeed()
+        NetworkServices().newsFeedJSON()
     }
+    
+//    func fillOutNewsFeed(){
+//        NetworkServices.shared.getNewsFeed { [weak self] result in
+//            switch result {
+//            case .failure(let error):
+//                print(error)
+//            case .success(let feeds):
+//                DispatchQueue.main.async {
+//                    self?.newsFeedOnlineArray = feeds
+//                    self?.newsfeedTableView.reloadData()
+//                }
+//            }
+//        }
+//    }
     
     private func cellsRegister(){
         newsfeedTableView.register(UINib(nibName: "NewsFeedTVCell", bundle: nil), forCellReuseIdentifier: NewsFeedTVCell.reuseTitleCellID)
@@ -56,8 +73,11 @@ extension NewsFeedVC: UITableViewDelegate, UITableViewDataSource
             cell.nameLabel.text = newsFeed[indexPath.section].headOfNews
             return cell
         case 1:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: PostTVCell.reusePostCellID, for: indexPath) as? PostTVCell else { return UITableViewCell() }
-            cell.postLabel.text = newsFeed[indexPath.section].textOfNews
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: PostTVCell.reusePostCellID, for: indexPath) as? PostTVCell
+                    // let postFeed = newsFeedOnlineArray?.response.items[indexPath.section]
+            else { return UITableViewCell() }
+            // cell.configure(feed: postFeed)
+            // cell.postLabel.text = newsFeed[indexPath.section].textOfNews
             return cell
         case 2:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: ImageTVCell.reuseImageCellID, for: indexPath) as? ImageTVCell else { return UITableViewCell() }

@@ -21,4 +21,7 @@ class PostTVCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
+//    func configure(feed: ResponseItem) {
+//        postLabel.text = feed.text
+//    }
 }
